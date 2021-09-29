@@ -36,7 +36,6 @@ module PusherFake
         host    = options.delete(:host)
         port    = options.delete(:port)
 
-        Thin::Logging.silent = true
         Thin::Server.new(host, port, Application).tap do |server|
           options.each do |key, value|
             server.__send__("#{key}=", value)
